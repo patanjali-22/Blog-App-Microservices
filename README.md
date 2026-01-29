@@ -2,7 +2,9 @@
 
 A full-stack blogging platform built with **microservices architecture**, featuring AI-powered content generation, real-time caching, and modern authentication.
 
-![Next.js](https://img.shields.io/badge/Next.js-15.3-black?style=for-the-badge&logo=next.js)
+🔗 **Live Demo**: [https://blogappmicroservices.netlify.app](https://blogappmicroservices.netlify.app)
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-blue?style=for-the-badge&logo=postgresql)
@@ -15,7 +17,7 @@ A full-stack blogging platform built with **microservices architecture**, featur
 ┌─────────────────────────────────────────────────────────────────┐
 │                         FRONTEND                                 │
 │                    (Next.js + TypeScript)                        │
-│                    Deployed on Vercel                            │
+│                    Deployed on Netlify                           │
 └──────────────────────────┬──────────────────────────────────────┘
                            │
           ┌────────────────┼────────────────┐
@@ -86,11 +88,12 @@ A full-stack blogging platform built with **microservices architecture**, featur
 ### Frontend
 | Technology | Purpose |
 |------------|---------|
-| Next.js 15 | React Framework with App Router |
+| Next.js 16 | React Framework with App Router |
 | TypeScript | Type Safety |
 | Tailwind CSS | Styling |
 | shadcn/ui | UI Components |
 | Axios | HTTP Client |
+| Jodit React | Rich Text Editor |
 
 ### Backend Services
 | Service | Technologies | Database |
@@ -110,7 +113,7 @@ A full-stack blogging platform built with **microservices architecture**, featur
 ### Deployment
 | Service | Platform |
 |---------|----------|
-| Frontend | Vercel |
+| Frontend | Netlify |
 | Backend Services | Render |
 | PostgreSQL | Neon |
 | MongoDB | MongoDB Atlas |
@@ -137,29 +140,27 @@ Blog-App-Microservices/
 │   │   ├── hooks/              # Custom Hooks
 │   │   └── lib/                # Utilities
 │   └── public/                 # Static Assets
-│
-└── services/
-    ├── user/                   # User Microservice
-    │   └── src/
-    │       ├── controllers/    # Route Handlers
-    │       ├── middleware/     # Auth, Multer
-    │       ├── model/          # Mongoose Models
-    │       ├── routes/         # Express Routes
-    │       └── utils/          # Helpers
-    │
-    ├── author/                 # Author Microservice
-    │   └── src/
-    │       ├── controllers/    # Blog CRUD + AI
-    │       ├── middlewares/    # Auth, Multer
-    │       ├── routes/         # Express Routes
-    │       └── utils/          # DB, RabbitMQ
-    │
-    └── blog/                   # Blog Microservice
-        └── src/
-            ├── controllers/    # Blog Read + Cache
-            ├── middleware/     # Auth
-            ├── routes/         # Express Routes
-            └── utils/          # DB, Redis Consumer
+├── services/
+│   ├── user/                   # User Microservice
+│   │   └── src/
+│   │       ├── controllers/    # Route Handlers
+│   │       ├── middleware/     # Auth, Multer
+│   │       ├── model/          # Mongoose Models
+│   │       ├── routes/         # Express Routes
+│   │       └── utils/          # Helpers
+│   ├── author/                 # Author Microservice
+│   │   └── src/
+│   │       ├── controllers/    # Blog CRUD + AI
+│   │       ├── middlewares/    # Auth, Multer
+│   │       ├── routes/         # Express Routes
+│   │       └── utils/          # DB, RabbitMQ
+│   └── blog/                   # Blog Microservice
+│       └── src/
+│           ├── controllers/    # Blog Read + Cache
+│           ├── middleware/     # Auth
+│           ├── routes/         # Express Routes
+│           └── utils/          # DB, Redis Consumer
+└── netlify.toml                # Netlify deployment config
 ```
 
 ## 🚀 Getting Started
@@ -218,9 +219,9 @@ Redis_Password=your_redis_password
 
 #### Frontend (`frontend/.env.local`)
 ```env
-NEXT_PUBLIC_USER_SERVICE=http://localhost:5000
-NEXT_PUBLIC_AUTHOR_SERVICE=http://localhost:5001
-NEXT_PUBLIC_BLOG_SERVICE=http://localhost:5002
+NEXT_PUBLIC_USER_SERVICE=https://user-service-xvkw.onrender.com
+NEXT_PUBLIC_AUTHOR_SERVICE=https://author-service-65ck.onrender.com
+NEXT_PUBLIC_BLOG_SERVICE=https://blog-service-1-vgqx.onrender.com
 ```
 
 ### Installation
@@ -325,20 +326,38 @@ Author Service                    RabbitMQ                    Blog Service
      │                               │                             │
 ```
 
-## 🎨 Screenshots
+## 🚀 Deployment
 
-### Home Page
-The landing page with navigation to blogs and login.
+### Frontend (Netlify)
+The frontend is deployed on Netlify with the `@netlify/plugin-nextjs` plugin for full Next.js support.
 
-### Blogs Page
-Grid view of all blogs with category filtering.
+Configuration is in `netlify.toml`:
+```toml
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
 
-### Blog Detail
-Full blog view with comments section.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+```
 
-### Create/Edit Blog
-Rich text editor with AI-powered features.
+### Backend Services (Render)
+Each microservice is deployed as a separate web service on Render.
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+**Patanjali U**
+- GitHub: [@patanjali-22](https://github.com/patanjali-22)
+
+---
+
+⭐ Star this repo if you found it helpful!
