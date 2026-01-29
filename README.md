@@ -91,7 +91,6 @@ A full-stack blogging platform built with **microservices architecture**, featur
 | Tailwind CSS | Styling |
 | shadcn/ui | UI Components |
 | Axios | HTTP Client |
-| Jodit React | Rich Text Editor |
 
 ### Backend Services
 | Service | Technologies | Database |
@@ -343,16 +342,3 @@ Rich text editor with AI-powered features.
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-**Patanjali U**
-- GitHub: [@patanjali-22](https://github.com/patanjali-22)
-
----
-
-⭐ Star this repo if you found it helpful!
