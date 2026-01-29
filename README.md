@@ -348,16 +348,3 @@ Each microservice is deployed as a separate web service on Render.
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-**Patanjali U**
-- GitHub: [@patanjali-22](https://github.com/patanjali-22)
-
----
-
-⭐ Star this repo if you found it helpful!
