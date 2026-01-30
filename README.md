@@ -342,9 +342,6 @@ Configuration is in `netlify.toml`:
   package = "@netlify/plugin-nextjs"
 ```
 
-### Backend Services (Render)
-Each microservice is deployed as a separate web service on Render.
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
